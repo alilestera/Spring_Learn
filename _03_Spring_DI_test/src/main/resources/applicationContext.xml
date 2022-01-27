@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--读取properties配置文件-->
+    <context:property-placeholder location="classpath:jdbc.properties"></context:property-placeholder>
+
+    <bean class="com.alilestera.domain.Phone" id="phone">
+        <property name="price" value="#{123 + 456}"></property>
+        <property name="name" value="8848钛金手机"></property>
+        <property name="password" value="123456"></property>
+        <property name="path" value="okgogogo"></property>
+    </bean>
+
+    <bean class="com.alilestera.domain.User" id="user">
+        <property name="age" value="10"></property>
+        <property name="name" value="大队长"></property>
+        <property name="phone" value="#{phone}"></property>
+
+        <property name="list">
+            <list>
+                <value>ok</value>
+                <value>okgo</value>
+                <value>okgogo</value>
+                <value>okgogogo</value>
+            </list>
+        </property>
+
+        <property name="phones">
+            <list>
+                <ref bean="phone"></ref>
+            </list>
+        </property>
+
+        <property name="set">
+            <set>
+                <value>setEle1</value>
+                <value>setEle2</value>
+            </set>
+        </property>
+
+        <property name="map">
+            <map>
+                <entry key="k1" value-ref="phone"></entry>
+                <entry key="k2" value-ref="phone"></entry>
+            </map>
+        </property>
+
+        <property name="arr">
+            <array>
+                <value>10</value>
+                <value>11</value>
+            </array>
+        </property>
+        
+        <property name="properties">
+            <props>
+                <prop key="k1">go1</prop>
+                <prop key="k2">go2</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean class="com.alibaba.druid.pool.DruidDataSource" id="dataSource">
+        <property name="driverClassName" value="${jdbc.driver}"></property>
+        <property name="url" value="${jdbc.url}"></property>
+        <property name="username" value="${jdbc.username}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+    </bean>
+</beans>

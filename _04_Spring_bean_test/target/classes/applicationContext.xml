@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:application.properties"></context:property-placeholder>
+
+    <bean class="com.alilestera.domain.Student" id="student" name="lihua,Lihua,LiHua" lazy-init="true" init-method="firstInit" destroy-method="lastClose">
+        <property name="name" value="${student.name}"></property>
+        <property name="age" value="${student.age}"></property>
+        <property name="sex" value="${student.sex}"></property>
+        <property name="id" value="${student.id}"></property>
+        <property name="teacherName" value="${student.teacherName}"></property>
+        <property name="favoriteSubject">
+            <array>
+                <value>${student.favoriteSubjectOne}</value>
+                <value>${student.favoriteSubjectTwo}</value>
+                <value>${student.favoriteSubjectThree}</value>
+            </array>
+        </property>
+    </bean>
+
+    <!--bean工厂-->
+    <bean class="com.alilestera.service.ToysFactory" id="toysFactory"></bean>
+    <bean factory-bean="toysFactory" factory-method="getToy" id="toy1" init-method="toString" name="toyMonkey,monkey"></bean>
+    <!--bean静态工厂-->
+    <bean class="com.alilestera.service.ToysStaticFactory" factory-method="getToy" id="toy2" init-method="toString" name="toyDog,dog"></bean>
+
+</beans>
