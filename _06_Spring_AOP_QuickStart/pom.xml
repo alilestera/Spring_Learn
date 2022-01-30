@@ -20,9 +20,14 @@
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
-            <version>1.9.7</version>
+            <version>1.9.8.RC3</version>
         </dependency>
+
     </dependencies>
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+    </properties>
 
     <groupId>com.alilestera</groupId>
     <artifactId>_06_Spring_AOP_QuickStart</artifactId>
