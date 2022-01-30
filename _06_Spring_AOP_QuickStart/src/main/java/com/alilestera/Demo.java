@@ -13,6 +13,6 @@ public class Demo {
         ClassPathXmlApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
         UserService userSerive = (UserService) app.getBean("userService");
         ItemService itemService = (ItemService) app.getBean("itemService");
-        userSerive.findAnyUser();
+        itemService.deleteAll();
     }
 }
