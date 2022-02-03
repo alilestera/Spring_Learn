@@ -11,13 +11,13 @@ import java.lang.reflect.Proxy;
  * @author Alilestera
  * @date 2/1/2022
  */
-public class Demo1 {
+public class Demo {
     public static void main(String[] args) {
         AIControllerImpl aiController = new AIControllerImpl();
         //使用动态代理增强getAnswer方法
         //1.JDK动态代理
         //获取类加载器
-        ClassLoader classLoader = Demo1.class.getClassLoader();
+        ClassLoader classLoader = Demo.class.getClassLoader();
         //被代理类所实现接口的字节码对象数组
         Class<?>[] interfaces = AIControllerImpl.class.getInterfaces();
         AIController proxy = (AIController) Proxy.newProxyInstance(classLoader, interfaces, new InvocationHandler() {

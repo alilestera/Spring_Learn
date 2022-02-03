@@ -3,8 +3,9 @@ package com.alilestera.controller;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class AIController {
+public class AIControllerImpl implements AIController{
     //AI自动回答
+    @Override
     public String getAnswer(String question){
         //AI核心代码 价值10个亿
         String str = question.replace("吗", "");
@@ -13,6 +14,7 @@ public class AIController {
     }
 
     //AI算命
+    @Override
     public String fortuneTelling(String name){
         //AI算命核心代码
         String[] strs = {"女犯伤官把夫克，旱地莲花栽不活，不是吃上两家饭，也要刷上三家锅。","一朵鲜花头上戴，一年四季也不开，一心想要花开时，采花之人没到来。","此命生来脾气暴，上来一阵双脚跳，对你脾气啥都好，经常与人吵和闹。"};
