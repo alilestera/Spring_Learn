@@ -11,4 +11,8 @@ import java.util.List;
 public interface UserService {
 
     List<User> findAll();
+
+    void updateUserAge(Integer id, Integer age);
+
+    void log();
 }

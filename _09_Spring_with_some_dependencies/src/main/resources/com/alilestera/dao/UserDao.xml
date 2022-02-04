@@ -5,4 +5,8 @@
 <select id="findAll" resultType="com.alilestera.domain.User">
     select * from user
     </select>
+
+<update id="updateUserAge">
+    update user set age = #{age} where id = #{id}
+    </update>
 </mapper>
